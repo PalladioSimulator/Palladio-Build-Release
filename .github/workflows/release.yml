@@ -3,13 +3,14 @@ name: Release Build
 on:
   workflow_dispatch:
 
-jobs:
+jobs:	  
   Palladio-Addon-ArchitecturalTemplates:
     needs: [Palladio-Addons-MeasurementsUI, Palladio-Addons-ExperimentAutomation]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-Addon-ArchitecturalTemplates
       deploy-updatesite: 'releng/org.palladiosimulator.architecturaltemplates.updatesite/target/repository'
     secrets:
@@ -22,9 +23,11 @@ jobs:
   Palladio-Addon-ArchitecturalTemplates-LoadBalancing:
     needs: [Palladio-Addon-ArchitecturalTemplates]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-Addon-ArchitecturalTemplates-LoadBalancing
       deploy-updatesite: 'releng/org.palladiosimulator.loadbalancingaction.updatesite/target/repository'
     secrets:
@@ -37,9 +40,10 @@ jobs:
   Palladio-Addons-ExperimentAutomation:
     needs: [Palladio-Analyzer-ProtoCom, Palladio-Analyzer-SimuLizar, Palladio-Addons-PerOpteryx, Palladio-Addons-SimuComExactSchedulers]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-Addons-ExperimentAutomation
       deploy-updatesite: 'releng/org.palladiosimulator.experimentautomation.updatesite/target/repository'
     secrets:
@@ -52,9 +56,10 @@ jobs:
   Palladio-Addons-FluentApiModelGenerator:
     needs: [Palladio-Core-PCM, Palladio-QuAL-ProbeFramework]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-Addons-FluentApiModelGenerator
       deploy-updatesite: 'releng/org.palladiosimulator.generator.fluent.updatesite/target/repository'
     secrets:
@@ -67,9 +72,10 @@ jobs:
   Palladio-Addons-MeasurementsUI:
     needs: [Palladio-Analyzer-ProtoCom, Palladio-Analyzer-SimuLizar, Palladio-Addons-PerOpteryx, Palladio-Addons-SimuComExactSchedulers]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-Addons-MeasurementsUI
       deploy-updatesite: 'releng/org.palladiosimulator.measurementsui.updatesite/target/repository'
     secrets:
@@ -82,9 +88,10 @@ jobs:
   Palladio-Addons-PerOpteryx:
     needs: [Palladio-Addons-ServiceLevelObjectives, Palladio-Analyzer-SimuCom]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-Addons-PerOpteryx
       deploy-updatesite: 'releng/org.palladiosimulator.peropteryx.updatesite/target/repository'
     secrets:
@@ -97,9 +104,10 @@ jobs:
   Palladio-Addons-ServiceLevelObjectives:
     needs: [Palladio-Editors-GMF, Palladio-QuAL-MonitorRepository, Palladio-ThirdParty-CloudScaleUsageEvolution, Palladio-QuAL-ExperimentAnalysis, Palladio-Analyzer-Reliability, Palladio-Editors-Tree]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-Addons-ServiceLevelObjectives
       deploy-updatesite: 'releng/org.palladiosimulator.servicelevelobjectives.updatesite/target/repository'
     secrets:
@@ -112,9 +120,10 @@ jobs:
   Palladio-Addons-SimuComExactSchedulers:
     needs: [Palladio-Addons-ServiceLevelObjectives, Palladio-Analyzer-SimuCom]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-Addons-SimuComExactSchedulers
       deploy-updatesite: 'releng/org.palladiosimulator.simucomexactschedulers.updatesite/target/repository'
     secrets:
@@ -127,9 +136,10 @@ jobs:
   Palladio-Analyzer-Framework:
     needs: [Palladio-QuAL-RecorderFramework, Palladio-Editors-Commons, Palladio-Simulation-Scheduler]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-Analyzer-Framework
       deploy-updatesite: 'releng/org.palladiosimulator.framework.updatesite/target/repository'
     secrets:
@@ -142,9 +152,10 @@ jobs:
   Palladio-Addons-PlantUML:
     needs: [Palladio-Core-Commons, Palladio-Core-PCM]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-Addons-PlantUML
       deploy-updatesite: 'releng/org.palladiosimulator.view.plantuml.updatesite/target/repository'
     secrets:
@@ -157,9 +168,10 @@ jobs:
   Palladio-Analyzer-ProtoCom:
     needs: [Palladio-Addons-ServiceLevelObjectives, Palladio-Analyzer-SimuCom]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-Analyzer-ProtoCom
       deploy-updatesite: 'releng/org.palladiosimulator.protocom.updatesite/target/repository'
     secrets:
@@ -172,9 +184,10 @@ jobs:
   Palladio-Analyzer-Reliability:
     needs: [Palladio-Analyzer-Solver]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-Analyzer-Reliability
       deploy-updatesite: 'releng/org.palladiosimulator.reliability.updatesite/target/repository'
     secrets:
@@ -187,9 +200,10 @@ jobs:
   Palladio-Analyzer-SimuCom:
     needs: [Palladio-Editors-GMF, Palladio-QuAL-MonitorRepository, Palladio-ThirdParty-CloudScaleUsageEvolution, Palladio-QuAL-ExperimentAnalysis, Palladio-Analyzer-Reliability, Palladio-Editors-Tree]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-Analyzer-SimuCom
       deploy-updatesite: 'releng/org.palladiosimulator.simucom.updatesite/target/repository'
     secrets:
@@ -202,9 +216,10 @@ jobs:
   Palladio-Analyzer-SimuLizar:
     needs: [Palladio-Addons-ServiceLevelObjectives, Palladio-Analyzer-SimuCom]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-Analyzer-SimuLizar
       deploy-updatesite: 'releng/org.palladiosimulator.simulizar.updatesite/target/repository'
     secrets:
@@ -217,9 +232,10 @@ jobs:
   Palladio-Analyzer-Solver:
     needs: [Palladio-Analyzer-Framework]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-Analyzer-Solver
       deploy-updatesite: 'releng/org.palladiosimulator.solver.updatesite/target/repository'
     secrets:
@@ -232,9 +248,10 @@ jobs:
   Palladio-Bench-Oomph:
     needs: [Palladio-Build-UpdateSite]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-Bench-Oomph
       deploy-updatesite: 'setups/'
     secrets:
@@ -247,9 +264,10 @@ jobs:
   Palladio-Bench-Product:
     needs: [Palladio-Build-UpdateSite]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-Bench-Product
       deploy-updatesite: 'products/org.palladiosimulator.product/target/deploy'
     secrets:
@@ -262,9 +280,10 @@ jobs:
   Palladio-Build-InstallationTest-Nightly:
     needs: [Palladio-Build-UpdateSite]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-Build-InstallationTest-Nightly
       deploy-updatesite: ''
     secrets:
@@ -277,9 +296,10 @@ jobs:
   Palladio-Build-InstallationTest-Release:
     needs: [Palladio-Build-UpdateSite]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-Build-InstallationTest-Release
       deploy-updatesite: ''
     secrets:
@@ -292,9 +312,10 @@ jobs:
   Palladio-Build-UpdateSite:
     needs: [Palladio-Supporting-EMFProfilesEditor]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-Build-UpdateSite
       deploy-updatesite: 'target/classes/p2/final'
     secrets:
@@ -307,9 +328,10 @@ jobs:
   Palladio-Core-Commons:
     needs: [Palladio-Supporting-Branding, Palladio-Example-Models, Palladio-P2Mirror-CBIAggregator]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-Core-Commons
       deploy-updatesite: 'releng/org.palladiosimulator.core-commons.updatesite/target/repository'
     secrets:
@@ -322,9 +344,10 @@ jobs:
   Palladio-Core-PCM:
     needs: [Palladio-QuAL-EDP2]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-Core-PCM
       deploy-updatesite: 'releng/org.palladiosimulator.pcm.updatesite/target/repository'
     secrets:
@@ -337,9 +360,10 @@ jobs:
   Palladio-Editors-Commons:
     needs: [Palladio-Core-PCM, Palladio-QuAL-ProbeFramework]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-Editors-Commons
       deploy-updatesite: 'releng/org.palladiosimulator.editors-commons.updatesite/target/repository'
     secrets:
@@ -352,9 +376,10 @@ jobs:
   Palladio-Editors-GMF:
     needs: [Palladio-Analyzer-Solver]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-Editors-GMF
       deploy-updatesite: 'releng/org.palladiosimulator.editorsgmf.updatesite/target/repository'
     secrets:
@@ -367,9 +392,10 @@ jobs:
   Palladio-Editors-Sirius:
     needs: [Palladio-Addon-ArchitecturalTemplates-LoadBalancing, Palladio-Example-Models-Package]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-Editors-Sirius
       deploy-updatesite: 'releng/org.palladiosimulator.editors.sirius.updatesite/target/repository'
     secrets:
@@ -382,9 +408,10 @@ jobs:
   Palladio-Editors-Tree:
     needs: [Palladio-Analyzer-Solver]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-Editors-Tree
       deploy-updatesite: 'releng/org.palladiosimulator.editorstree.updatesite/target/repository'
     secrets:
@@ -397,9 +424,10 @@ jobs:
   Palladio-Example-Models:
     needs: []
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-Example-Models
       deploy-updatesite: 'target/deploy'
     secrets:
@@ -412,9 +440,10 @@ jobs:
   Palladio-Example-Models-Package:
     needs: [Palladio-Addon-ArchitecturalTemplates]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-Example-Models-Package
       deploy-updatesite: 'releng/org.palladiosimulator.examples.package.updatesite/target/repository'
     secrets:
@@ -427,9 +456,10 @@ jobs:
   Palladio-P2Mirror-CBIAggregator:
     needs: []
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-P2Mirror-CBIAggregator
       deploy-updatesite: 'target/repository'
     secrets:
@@ -442,9 +472,10 @@ jobs:
   Palladio-QuAL-EDP2:
     needs: [Palladio-QuAL-MeasurementFramework, Palladio-Simulation-AbstractSimEngine, Palladio-QuAL-SensorFramework]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-QuAL-EDP2
       deploy-updatesite: 'releng/org.palladiosimulator.edp2.updatesite/target/repository'
     secrets:
@@ -457,9 +488,10 @@ jobs:
   Palladio-QuAL-ExperimentAnalysis:
     needs: [Palladio-Analyzer-Solver]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-QuAL-ExperimentAnalysis
       deploy-updatesite: 'releng/org.palladiosimulator.experimentanalysis.updatesite/target/repository'
     secrets:
@@ -472,9 +504,10 @@ jobs:
   Palladio-QuAL-MeasurementFramework:
     needs: [Palladio-Supporting-WorkflowEngine, Palladio-ThirdParty-Wrapper, Palladio-Supporting-FeatureModel, Palladio-QuAL-MetricSpecification, Palladio-Supporting-MDSDProfiles]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-QuAL-MeasurementFramework
       deploy-updatesite: 'releng/org.palladiosimulator.measurementframework.updatesite/target/repository'
     secrets:
@@ -487,9 +520,10 @@ jobs:
   Palladio-QuAL-MetricSpecification:
     needs: [Palladio-ThirdParty-Library, Palladio-Core-Commons, Palladio-ThirdParty-YakinduStateCharts, Palladio-ThirdParty-EMFProfiles, Palladio-Supporting-EclipseJavaDevelopmentTools]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-QuAL-MetricSpecification
       deploy-updatesite: 'releng/org.palladiosimulator.metricspecification.updatesite/target/repository'
     secrets:
@@ -502,9 +536,10 @@ jobs:
   Palladio-QuAL-MonitorRepository:
     needs: [Palladio-Analyzer-Solver]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-QuAL-MonitorRepository
       deploy-updatesite: 'releng/org.palladiosimulator.monitorrepository.updatesite/target/repository'
     secrets:
@@ -517,9 +552,10 @@ jobs:
   Palladio-QuAL-ProbeFramework:
     needs: [Palladio-QuAL-EDP2]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-QuAL-ProbeFramework
       deploy-updatesite: 'releng/org.palladiosimulator.probeframework.updatesite/target/repository'
     secrets:
@@ -532,9 +568,10 @@ jobs:
   Palladio-QuAL-RecorderFramework:
     needs: [Palladio-Core-PCM, Palladio-QuAL-ProbeFramework]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-QuAL-RecorderFramework
       deploy-updatesite: 'releng/org.palladiosimulator.recorderframework.updatesite/target/repository'
     secrets:
@@ -547,9 +584,10 @@ jobs:
   Palladio-QuAL-SensorFramework:
     needs: [Palladio-Supporting-WorkflowEngine, Palladio-ThirdParty-Wrapper, Palladio-Supporting-FeatureModel, Palladio-QuAL-MetricSpecification, Palladio-Supporting-MDSDProfiles]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-QuAL-SensorFramework
       deploy-updatesite: 'releng/org.palladiosimulator.sensorframework.updatesite/target/repository'
     secrets:
@@ -562,9 +600,10 @@ jobs:
   Palladio-Simulation-AbstractSimEngine:
     needs: [Palladio-Supporting-WorkflowEngine, Palladio-ThirdParty-Wrapper, Palladio-Supporting-FeatureModel, Palladio-QuAL-MetricSpecification, Palladio-Supporting-MDSDProfiles]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-Simulation-AbstractSimEngine
       deploy-updatesite: 'releng/org.palladiosimulator.simulation.abstractsimengine.updatesite/target/repository'
     secrets:
@@ -577,9 +616,10 @@ jobs:
   Palladio-Simulation-Scheduler:
     needs: [Palladio-Core-PCM, Palladio-QuAL-ProbeFramework]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-Simulation-Scheduler
       deploy-updatesite: 'releng/org.palladiosimulator.scheduler.updatesite/target/repository'
     secrets:
@@ -592,9 +632,10 @@ jobs:
   Palladio-Supporting-Branding:
     needs: []
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-Supporting-Branding
       deploy-updatesite: 'releng/org.palladiosimulator.branding.updatesite/target/repository'
     secrets:
@@ -607,9 +648,10 @@ jobs:
   Palladio-Supporting-EclipseJavaDevelopmentTools:
     needs: [Palladio-Supporting-Branding, Palladio-Example-Models, Palladio-P2Mirror-CBIAggregator]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-Supporting-EclipseJavaDevelopmentTools
       deploy-updatesite: 'releng/org.palladiosimulator.jdt.updatesite/target/repository'
     secrets:
@@ -622,9 +664,10 @@ jobs:
   Palladio-Supporting-EMFProfilesEditor:
     needs: [Palladio-Editors-Sirius]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-Supporting-EMFProfilesEditor
       deploy-updatesite: 'releng/org.palladiosimulator.emfprofileseditor.updatesite/target/repository'
     secrets:
@@ -637,9 +680,10 @@ jobs:
   Palladio-Supporting-FeatureModel:
     needs: [Palladio-ThirdParty-Library, Palladio-Core-Commons, Palladio-ThirdParty-YakinduStateCharts, Palladio-ThirdParty-EMFProfiles, Palladio-Supporting-EclipseJavaDevelopmentTools]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-Supporting-FeatureModel
       deploy-updatesite: 'releng/org.palladiosimulator.featuremodel.updatesite/target/repository'
     secrets:
@@ -652,9 +696,10 @@ jobs:
   Palladio-Supporting-MDSDProfiles:
     needs: [Palladio-ThirdParty-Library, Palladio-Core-Commons, Palladio-ThirdParty-YakinduStateCharts, Palladio-ThirdParty-EMFProfiles, Palladio-Supporting-EclipseJavaDevelopmentTools]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-Supporting-MDSDProfiles
       deploy-updatesite: 'releng/org.palladiosimulator.mdsdprofiles.updatesite/target/repository'
     secrets:
@@ -667,9 +712,10 @@ jobs:
   Palladio-Supporting-WorkflowEngine:
     needs: [Palladio-ThirdParty-Library, Palladio-Core-Commons, Palladio-ThirdParty-YakinduStateCharts, Palladio-ThirdParty-EMFProfiles, Palladio-Supporting-EclipseJavaDevelopmentTools]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-Supporting-WorkflowEngine
       deploy-updatesite: 'releng/de.uka.ipd.sdq.workflow.updatesite/target/repository'
     secrets:
@@ -682,9 +728,10 @@ jobs:
   Palladio-ThirdParty-CloudScaleUsageEvolution:
     needs: [Palladio-Analyzer-Solver]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-ThirdParty-CloudScaleUsageEvolution
       deploy-updatesite: 'releng/org.scaledl.usageevolution.updatesite/target/repository'
     secrets:
@@ -697,9 +744,10 @@ jobs:
   Palladio-ThirdParty-EMFProfiles:
     needs: [Palladio-Supporting-Branding, Palladio-Example-Models, Palladio-P2Mirror-CBIAggregator]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-ThirdParty-EMFProfiles
       deploy-updatesite: 'releng/org.palladiosimulator.emf-profiles.updatesite/target/repository'
     secrets:
@@ -712,9 +760,10 @@ jobs:
   Palladio-ThirdParty-Library:
     needs: [Palladio-Supporting-Branding, Palladio-Example-Models, Palladio-P2Mirror-CBIAggregator]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-ThirdParty-Library
       deploy-updatesite: 'target/repository'
     secrets:
@@ -727,9 +776,10 @@ jobs:
   Palladio-ThirdParty-Wrapper:
     needs: [Palladio-ThirdParty-Library, Palladio-Core-Commons, Palladio-ThirdParty-YakinduStateCharts, Palladio-ThirdParty-EMFProfiles, Palladio-Supporting-EclipseJavaDevelopmentTools]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-ThirdParty-Wrapper
       deploy-updatesite: 'releng/org.palladiosimulator.thirdpartywrapper.updatesite/target/repository'
     secrets:
@@ -742,9 +792,10 @@ jobs:
   Palladio-ThirdParty-YakinduStateCharts:
     needs: [Palladio-Supporting-Branding, Palladio-Example-Models, Palladio-P2Mirror-CBIAggregator]
     if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
+      skip-branch-deploy: false
       build-repository: PalladioSimulator/Palladio-ThirdParty-YakinduStateCharts
       deploy-updatesite: 'releng/org.palladiosimulator.yakindu.statecharts.utils.repository/target/repository'
     secrets:
