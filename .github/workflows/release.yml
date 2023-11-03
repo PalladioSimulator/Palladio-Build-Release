@@ -549,7 +549,7 @@ jobs:
       REMOTE_TARGET: ${{ secrets.DEPLOYMENT_REMOTE_TARGET }}
 
   Palladio-QuAL-MetricSpecification:
-    needs: [Palladio-ThirdParty-Library, Palladio-Core-Commons, Palladio-ThirdParty-YakinduStateCharts, Palladio-ThirdParty-EMFProfiles, Palladio-Supporting-EclipseJavaDevelopmentTools]
+    needs: [Palladio-ThirdParty-Library, Palladio-Core-Commons, Palladio-ThirdParty-EMFProfiles, Palladio-Supporting-EclipseJavaDevelopmentTools]
     if: success() || failure()
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
@@ -719,7 +719,7 @@ jobs:
       REMOTE_TARGET: ${{ secrets.DEPLOYMENT_REMOTE_TARGET }}
 
   Palladio-Supporting-FeatureModel:
-    needs: [Palladio-ThirdParty-Library, Palladio-Core-Commons, Palladio-ThirdParty-YakinduStateCharts, Palladio-ThirdParty-EMFProfiles, Palladio-Supporting-EclipseJavaDevelopmentTools]
+    needs: [Palladio-ThirdParty-Library, Palladio-Core-Commons, Palladio-ThirdParty-EMFProfiles, Palladio-Supporting-EclipseJavaDevelopmentTools]
     if: success() || failure()
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
@@ -736,7 +736,7 @@ jobs:
       REMOTE_TARGET: ${{ secrets.DEPLOYMENT_REMOTE_TARGET }}
 
   Palladio-Supporting-MDSDProfiles:
-    needs: [Palladio-ThirdParty-Library, Palladio-Core-Commons, Palladio-ThirdParty-YakinduStateCharts, Palladio-ThirdParty-EMFProfiles, Palladio-Supporting-EclipseJavaDevelopmentTools]
+    needs: [Palladio-ThirdParty-Library, Palladio-Core-Commons, Palladio-ThirdParty-EMFProfiles, Palladio-Supporting-EclipseJavaDevelopmentTools]
     if: success() || failure()
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
@@ -753,7 +753,7 @@ jobs:
       REMOTE_TARGET: ${{ secrets.DEPLOYMENT_REMOTE_TARGET }}
 
   Palladio-Supporting-WorkflowEngine:
-    needs: [Palladio-ThirdParty-Library, Palladio-Core-Commons, Palladio-ThirdParty-YakinduStateCharts, Palladio-ThirdParty-EMFProfiles, Palladio-Supporting-EclipseJavaDevelopmentTools]
+    needs: [Palladio-ThirdParty-Library, Palladio-Core-Commons, Palladio-ThirdParty-EMFProfiles, Palladio-Supporting-EclipseJavaDevelopmentTools]
     if: success() || failure()
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
@@ -821,7 +821,7 @@ jobs:
       REMOTE_TARGET: ${{ secrets.DEPLOYMENT_REMOTE_TARGET }}
 
   Palladio-ThirdParty-Wrapper:
-    needs: [Palladio-ThirdParty-Library, Palladio-Core-Commons, Palladio-ThirdParty-YakinduStateCharts, Palladio-ThirdParty-EMFProfiles, Palladio-Supporting-EclipseJavaDevelopmentTools]
+    needs: [Palladio-ThirdParty-Library, Palladio-Core-Commons, Palladio-ThirdParty-EMFProfiles, Palladio-Supporting-EclipseJavaDevelopmentTools]
     if: success() || failure()
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
@@ -830,23 +830,6 @@ jobs:
       no-caching: true
       build-repository: PalladioSimulator/Palladio-ThirdParty-Wrapper
       deploy-updatesite: 'releng/org.palladiosimulator.thirdpartywrapper.updatesite/target/repository'
-    secrets:
-      SERVER_SSH_KEY: ${{ secrets.DEPLOYMENT_SERVER_SSH_KEY }}
-      REMOTE_HOST: ${{ secrets.DEPLOYMENT_REMOTE_HOST }}
-      REMOTE_PORT: ${{ secrets.DEPLOYMENT_REMOTE_PORT }}
-      REMOTE_USER: ${{ secrets.DEPLOYMENT_REMOTE_USER }}
-      REMOTE_TARGET: ${{ secrets.DEPLOYMENT_REMOTE_TARGET }}
-
-  Palladio-ThirdParty-YakinduStateCharts:
-    needs: [Palladio-Supporting-Branding, Palladio-Example-Models, Palladio-P2Mirror-CBIAggregator]
-    if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
-    with:
-      use-display-output: true
-      skip-branch-deploy: false
-      no-caching: true
-      build-repository: PalladioSimulator/Palladio-ThirdParty-YakinduStateCharts
-      deploy-updatesite: 'releng/org.palladiosimulator.yakindu.statecharts.utils.repository/target/repository'
     secrets:
       SERVER_SSH_KEY: ${{ secrets.DEPLOYMENT_SERVER_SSH_KEY }}
       REMOTE_HOST: ${{ secrets.DEPLOYMENT_REMOTE_HOST }}
