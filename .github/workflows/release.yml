@@ -3,7 +3,7 @@ name: Release Build
 on:
   workflow_dispatch:
 
-jobs:	  
+jobs:	   
   Palladio-Addon-ArchitecturalTemplates:
     needs: [Palladio-Addons-MeasurementsUI, Palladio-Addons-ExperimentAutomation]
     if: success() || failure()
