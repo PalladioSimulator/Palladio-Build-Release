@@ -39,7 +39,7 @@ jobs:
       REMOTE_TARGET: ${{ secrets.DEPLOYMENT_REMOTE_TARGET }}
 
   Palladio-Addons-ExperimentAutomation:
-    needs: [Palladio-Analyzer-ProtoCom, Palladio-Analyzer-SimuLizar, Palladio-Addons-PerOpteryx, Palladio-Addons-SimuComExactSchedulers]
+    needs: [Palladio-Analyzer-SimuLizar, Palladio-Addons-PerOpteryx, Palladio-Addons-SimuComExactSchedulers]
     if: success() || failure()
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
@@ -73,7 +73,7 @@ jobs:
       REMOTE_TARGET: ${{ secrets.DEPLOYMENT_REMOTE_TARGET }}
 
   Palladio-Addons-MeasurementsUI:
-    needs: [Palladio-Analyzer-ProtoCom, Palladio-Analyzer-SimuLizar, Palladio-Addons-PerOpteryx, Palladio-Addons-SimuComExactSchedulers]
+    needs: [Palladio-Analyzer-SimuLizar, Palladio-Addons-PerOpteryx, Palladio-Addons-SimuComExactSchedulers]
     if: success() || failure()
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
