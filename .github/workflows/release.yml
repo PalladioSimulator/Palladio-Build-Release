@@ -226,7 +226,7 @@ jobs:
       REMOTE_TARGET: ${{ secrets.DEPLOYMENT_REMOTE_TARGET }}
 
   Palladio-Analyzer-SimuLizar:
-    needs: [Palladio-Addons-ServiceLevelObjectives, Palladio-Analyzer-SimuCom, Palladio-Example-Models-Package]
+    needs: [Palladio-Addons-ServiceLevelObjectives, Palladio-Analyzer-SimuCom]
     if: success() || failure()
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
