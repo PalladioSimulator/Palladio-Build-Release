@@ -549,7 +549,7 @@ jobs:
       REMOTE_TARGET: ${{ secrets.DEPLOYMENT_REMOTE_TARGET }}
 
   Palladio-QuAL-MetricSpecification:
-    needs: [Palladio-ThirdParty-Library, Palladio-Core-Commons, Palladio-ThirdParty-EMFProfiles, Palladio-Supporting-EclipseJavaDevelopmentTools]
+    needs: [Palladio-Core-Commons, Palladio-ThirdParty-EMFProfiles]
     if: success() || failure()
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
@@ -684,23 +684,6 @@ jobs:
       REMOTE_USER: ${{ secrets.DEPLOYMENT_REMOTE_USER }}
       REMOTE_TARGET: ${{ secrets.DEPLOYMENT_REMOTE_TARGET }}
 
-  Palladio-Supporting-EclipseJavaDevelopmentTools:
-    needs: [Palladio-Supporting-Branding, Palladio-Example-Models, Palladio-P2Mirror-CBIAggregator]
-    if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
-    with:
-      use-display-output: true
-      skip-branch-deploy: false
-      no-caching: true
-      build-repository: PalladioSimulator/Palladio-Supporting-EclipseJavaDevelopmentTools
-      deploy-updatesite: 'releng/org.palladiosimulator.jdt.updatesite/target/repository'
-    secrets:
-      SERVER_SSH_KEY: ${{ secrets.DEPLOYMENT_SERVER_SSH_KEY }}
-      REMOTE_HOST: ${{ secrets.DEPLOYMENT_REMOTE_HOST }}
-      REMOTE_PORT: ${{ secrets.DEPLOYMENT_REMOTE_PORT }}
-      REMOTE_USER: ${{ secrets.DEPLOYMENT_REMOTE_USER }}
-      REMOTE_TARGET: ${{ secrets.DEPLOYMENT_REMOTE_TARGET }}
-
   Palladio-Supporting-EMFProfilesEditor:
     needs: [Palladio-Editors-Sirius]
     if: success() || failure()
@@ -719,7 +702,7 @@ jobs:
       REMOTE_TARGET: ${{ secrets.DEPLOYMENT_REMOTE_TARGET }}
 
   Palladio-Supporting-FeatureModel:
-    needs: [Palladio-ThirdParty-Library, Palladio-Core-Commons, Palladio-ThirdParty-EMFProfiles, Palladio-Supporting-EclipseJavaDevelopmentTools]
+    needs: [Palladio-Core-Commons, Palladio-ThirdParty-EMFProfiles]
     if: success() || failure()
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
@@ -736,7 +719,7 @@ jobs:
       REMOTE_TARGET: ${{ secrets.DEPLOYMENT_REMOTE_TARGET }}
 
   Palladio-Supporting-MDSDProfiles:
-    needs: [Palladio-ThirdParty-Library, Palladio-Core-Commons, Palladio-ThirdParty-EMFProfiles, Palladio-Supporting-EclipseJavaDevelopmentTools]
+    needs: [Palladio-Core-Commons, Palladio-ThirdParty-EMFProfiles]
     if: success() || failure()
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
@@ -753,7 +736,7 @@ jobs:
       REMOTE_TARGET: ${{ secrets.DEPLOYMENT_REMOTE_TARGET }}
 
   Palladio-Supporting-WorkflowEngine:
-    needs: [Palladio-ThirdParty-Library, Palladio-Core-Commons, Palladio-ThirdParty-EMFProfiles, Palladio-Supporting-EclipseJavaDevelopmentTools]
+    needs: [Palladio-Core-Commons, Palladio-ThirdParty-EMFProfiles]
     if: success() || failure()
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
@@ -803,25 +786,8 @@ jobs:
       REMOTE_USER: ${{ secrets.DEPLOYMENT_REMOTE_USER }}
       REMOTE_TARGET: ${{ secrets.DEPLOYMENT_REMOTE_TARGET }}
 
-  Palladio-ThirdParty-Library:
-    needs: [Palladio-Supporting-Branding, Palladio-Example-Models, Palladio-P2Mirror-CBIAggregator]
-    if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
-    with:
-      use-display-output: true
-      skip-branch-deploy: false
-      no-caching: true
-      build-repository: PalladioSimulator/Palladio-ThirdParty-Library
-      deploy-updatesite: 'target/repository'
-    secrets:
-      SERVER_SSH_KEY: ${{ secrets.DEPLOYMENT_SERVER_SSH_KEY }}
-      REMOTE_HOST: ${{ secrets.DEPLOYMENT_REMOTE_HOST }}
-      REMOTE_PORT: ${{ secrets.DEPLOYMENT_REMOTE_PORT }}
-      REMOTE_USER: ${{ secrets.DEPLOYMENT_REMOTE_USER }}
-      REMOTE_TARGET: ${{ secrets.DEPLOYMENT_REMOTE_TARGET }}
-
   Palladio-ThirdParty-Wrapper:
-    needs: [Palladio-ThirdParty-Library, Palladio-Core-Commons, Palladio-ThirdParty-EMFProfiles, Palladio-Supporting-EclipseJavaDevelopmentTools]
+    needs: [Palladio-Core-Commons, Palladio-ThirdParty-EMFProfiles]
     if: success() || failure()
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
