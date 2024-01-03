@@ -10,7 +10,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-Addon-ArchitecturalTemplates
       deploy-updatesite: 'releng/org.palladiosimulator.architecturaltemplates.updatesite/target/repository'
@@ -27,7 +27,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-Addon-ArchitecturalTemplates-LoadBalancing
       deploy-updatesite: 'releng/org.palladiosimulator.loadbalancingaction.updatesite/target/repository'
@@ -44,7 +44,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-Addons-ExperimentAutomation
       deploy-updatesite: 'releng/org.palladiosimulator.experimentautomation.updatesite/target/repository'
@@ -61,7 +61,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-Addons-FluentApiModelGenerator
       deploy-updatesite: 'releng/org.palladiosimulator.generator.fluent.updatesite/target/repository'
@@ -78,7 +78,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-Addons-MeasurementsUI
       deploy-updatesite: 'releng/org.palladiosimulator.measurementsui.updatesite/target/repository'
@@ -95,7 +95,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-Addons-PerOpteryx
       deploy-updatesite: 'releng/org.palladiosimulator.peropteryx.updatesite/target/repository'
@@ -112,7 +112,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-Addons-ServiceLevelObjectives
       deploy-updatesite: 'releng/org.palladiosimulator.servicelevelobjectives.updatesite/target/repository'
@@ -129,7 +129,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-Addons-SimuComExactSchedulers
       deploy-updatesite: 'releng/org.palladiosimulator.simucomexactschedulers.updatesite/target/repository'
@@ -146,7 +146,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-Analyzer-Framework
       deploy-updatesite: 'releng/org.palladiosimulator.framework.updatesite/target/repository'
@@ -163,7 +163,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-Addons-PlantUML
       deploy-updatesite: 'releng/org.palladiosimulator.view.plantuml.updatesite/target/repository'
@@ -180,7 +180,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-Analyzer-ProtoCom
       deploy-updatesite: 'releng/org.palladiosimulator.protocom.updatesite/target/repository'
@@ -197,7 +197,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-Analyzer-Reliability
       deploy-updatesite: 'releng/org.palladiosimulator.reliability.updatesite/target/repository'
@@ -214,7 +214,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-Analyzer-SimuCom
       deploy-updatesite: 'releng/org.palladiosimulator.simucom.updatesite/target/repository'
@@ -231,7 +231,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-Analyzer-SimuLizar
       deploy-updatesite: 'releng/org.palladiosimulator.simulizar.updatesite/target/repository'
@@ -248,7 +248,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-Analyzer-Solver
       deploy-updatesite: 'releng/org.palladiosimulator.solver.updatesite/target/repository'
@@ -265,7 +265,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-Bench-Product
       deploy-updatesite: 'products/org.palladiosimulator.product/target/deploy'
@@ -282,7 +282,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-Build-InstallationTest-Nightly
       deploy-updatesite: ''
@@ -299,7 +299,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-Build-InstallationTest-Release
       deploy-updatesite: ''
@@ -316,7 +316,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-Build-UpdateSite
       deploy-updatesite: 'target/classes/p2/final'
@@ -333,7 +333,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-Core-Commons
       deploy-updatesite: 'releng/org.palladiosimulator.core-commons.updatesite/target/repository'
@@ -350,7 +350,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-Core-PCM
       deploy-updatesite: 'releng/org.palladiosimulator.pcm.updatesite/target/repository'
@@ -367,7 +367,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-Editors-Commons
       deploy-updatesite: 'releng/org.palladiosimulator.editors-commons.updatesite/target/repository'
@@ -384,7 +384,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-Editors-GMF
       deploy-updatesite: 'releng/org.palladiosimulator.editorsgmf.updatesite/target/repository'
@@ -401,7 +401,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-Editors-Sirius
       deploy-updatesite: 'releng/org.palladiosimulator.editors.sirius.updatesite/target/repository'
@@ -418,7 +418,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-Editors-Tree
       deploy-updatesite: 'releng/org.palladiosimulator.editorstree.updatesite/target/repository'
@@ -435,7 +435,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-Example-Models
       deploy-updatesite: 'target/deploy'
@@ -452,7 +452,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-Example-Models-Package
       deploy-updatesite: 'releng/org.palladiosimulator.examples.package.updatesite/target/repository'
@@ -469,7 +469,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-P2Mirror-CBIAggregator
       deploy-updatesite: 'target/repository'
@@ -486,7 +486,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-QuAL-EDP2
       deploy-updatesite: 'releng/org.palladiosimulator.edp2.updatesite/target/repository'
@@ -503,7 +503,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-QuAL-ExperimentAnalysis
       deploy-updatesite: 'releng/org.palladiosimulator.experimentanalysis.updatesite/target/repository'
@@ -520,7 +520,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-QuAL-MeasurementFramework
       deploy-updatesite: 'releng/org.palladiosimulator.measurementframework.updatesite/target/repository'
@@ -537,7 +537,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-QuAL-MetricSpecification
       deploy-updatesite: 'releng/org.palladiosimulator.metricspecification.updatesite/target/repository'
@@ -554,7 +554,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-QuAL-MonitorRepository
       deploy-updatesite: 'releng/org.palladiosimulator.monitorrepository.updatesite/target/repository'
@@ -571,7 +571,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-QuAL-ProbeFramework
       deploy-updatesite: 'releng/org.palladiosimulator.probeframework.updatesite/target/repository'
@@ -588,7 +588,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-QuAL-RecorderFramework
       deploy-updatesite: 'releng/org.palladiosimulator.recorderframework.updatesite/target/repository'
@@ -605,7 +605,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-QuAL-SensorFramework
       deploy-updatesite: 'releng/org.palladiosimulator.sensorframework.updatesite/target/repository'
@@ -622,7 +622,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-Simulation-AbstractSimEngine
       deploy-updatesite: 'releng/org.palladiosimulator.simulation.abstractsimengine.updatesite/target/repository'
@@ -639,7 +639,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-Simulation-Scheduler
       deploy-updatesite: 'releng/org.palladiosimulator.scheduler.updatesite/target/repository'
@@ -656,7 +656,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-Supporting-Branding
       deploy-updatesite: 'releng/org.palladiosimulator.branding.updatesite/target/repository'
@@ -673,7 +673,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-Supporting-EMFProfilesEditor
       deploy-updatesite: 'releng/org.palladiosimulator.emfprofileseditor.updatesite/target/repository'
@@ -690,7 +690,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-Supporting-FeatureModel
       deploy-updatesite: 'releng/org.palladiosimulator.featuremodel.updatesite/target/repository'
@@ -707,7 +707,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-Supporting-MDSDProfiles
       deploy-updatesite: 'releng/org.palladiosimulator.mdsdprofiles.updatesite/target/repository'
@@ -724,7 +724,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-Supporting-WorkflowEngine
       deploy-updatesite: 'releng/de.uka.ipd.sdq.workflow.updatesite/target/repository'
@@ -741,7 +741,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-ThirdParty-CloudScaleUsageEvolution
       deploy-updatesite: 'releng/org.scaledl.usageevolution.updatesite/target/repository'
@@ -758,7 +758,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-ThirdParty-EMFProfiles
       deploy-updatesite: 'releng/org.palladiosimulator.emf-profiles.updatesite/target/repository'
@@ -775,7 +775,7 @@ jobs:
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
       use-display-output: true
-      skip-branch-deploy: false
+      release-version: '5.2.0'
       no-caching: true
       build-repository: PalladioSimulator/Palladio-ThirdParty-Wrapper
       deploy-updatesite: 'releng/org.palladiosimulator.thirdpartywrapper.updatesite/target/repository'
