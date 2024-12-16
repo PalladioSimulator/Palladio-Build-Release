@@ -1,11 +1,10 @@
-name: Release Build
 
 on:
   workflow_dispatch:
 
-jobs:
-  Palladio-Bench-Product:
-    needs: [Palladio-Build-UpdateSite]
+jobs:	   
+  Palladio-Analyzer-SimuLizar:
+    needs: []
     if: success() || failure()
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
@@ -13,17 +12,17 @@ jobs:
       release-version: '5.2.1'
       no-caching: true
       runner-label: ubuntu-latest
-      build-repository: PalladioSimulator/Palladio-Bench-Product
-      deploy-updatesite: 'products/org.palladiosimulator.product/target/deploy'
+      build-repository: PalladioSimulator/Palladio-Analyzer-SimuLizar
+      deploy-updatesite: 'releng/org.palladiosimulator.simulizar.updatesite/target/repository'
     secrets:
       SERVER_SSH_KEY: ${{ secrets.DEPLOYMENT_SERVER_SSH_KEY }}
       REMOTE_HOST: ${{ secrets.DEPLOYMENT_REMOTE_HOST }}
       REMOTE_PORT: ${{ secrets.DEPLOYMENT_REMOTE_PORT }}
       REMOTE_USER: ${{ secrets.DEPLOYMENT_REMOTE_USER }}
       REMOTE_TARGET: ${{ secrets.DEPLOYMENT_REMOTE_TARGET }}
-
+      
   Palladio-Build-UpdateSite:
-    needs: [Palladio-ThirdParty-Library]
+    needs: [Palladio-Analyzer-SimuLizar]
     if: success() || failure()
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
     with:
@@ -33,24 +32,6 @@ jobs:
       runner-label: ubuntu-latest
       build-repository: PalladioSimulator/Palladio-Build-UpdateSite
       deploy-updatesite: 'target/classes/p2/final'
-    secrets:
-      SERVER_SSH_KEY: ${{ secrets.DEPLOYMENT_SERVER_SSH_KEY }}
-      REMOTE_HOST: ${{ secrets.DEPLOYMENT_REMOTE_HOST }}
-      REMOTE_PORT: ${{ secrets.DEPLOYMENT_REMOTE_PORT }}
-      REMOTE_USER: ${{ secrets.DEPLOYMENT_REMOTE_USER }}
-      REMOTE_TARGET: ${{ secrets.DEPLOYMENT_REMOTE_TARGET }}
-
-  Palladio-ThirdParty-Library:
-    needs: []
-    if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@releaseBranch
-    with:
-      use-display-output: true
-      release-version: '5.2.1'
-      no-caching: true
-      runner-label: ubuntu-latest
-      build-repository: PalladioSimulator/Palladio-ThirdParty-Library
-      deploy-updatesite: 'target/repository'
     secrets:
       SERVER_SSH_KEY: ${{ secrets.DEPLOYMENT_SERVER_SSH_KEY }}
       REMOTE_HOST: ${{ secrets.DEPLOYMENT_REMOTE_HOST }}
