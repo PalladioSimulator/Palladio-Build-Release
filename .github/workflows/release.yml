@@ -90,7 +90,7 @@ jobs:
       REMOTE_TARGET: ${{ secrets.DEPLOYMENT_REMOTE_TARGET }}
 
   Palladio-Analyzer-SimuLizar:
-    needs: []
+    needs: [Palladio-ThirdParty-LIMBO]
     if: success() || failure()
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
     with:
