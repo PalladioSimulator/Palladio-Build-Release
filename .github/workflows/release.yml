@@ -5,7 +5,7 @@ on:
 
 jobs:      
   Palladio-Addon-ArchitecturalTemplates:
-    needs: [Palladio-Addons-MeasurementsUI, Palladio-Addons-ExperimentAutomation]
+    needs: [Palladio-Addons-ExperimentAutomation]
     if: success() || failure()
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
     with:
@@ -39,7 +39,7 @@ jobs:
       REMOTE_TARGET: ${{ secrets.DEPLOYMENT_REMOTE_TARGET }}
 
   Palladio-Addons-ExperimentAutomation:
-    needs: [Palladio-Analyzer-SimuLizar, Palladio-Addons-PerOpteryx]
+    needs: []
     if: success() || failure()
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
     with:
@@ -48,57 +48,6 @@ jobs:
       no-caching: true
       build-repository: PalladioSimulator/Palladio-Addons-ExperimentAutomation
       deploy-updatesite: 'releng/org.palladiosimulator.experimentautomation.updatesite/target/repository'
-    secrets:
-      SERVER_SSH_KEY: ${{ secrets.DEPLOYMENT_SERVER_SSH_KEY }}
-      REMOTE_HOST: ${{ secrets.DEPLOYMENT_REMOTE_HOST }}
-      REMOTE_PORT: ${{ secrets.DEPLOYMENT_REMOTE_PORT }}
-      REMOTE_USER: ${{ secrets.DEPLOYMENT_REMOTE_USER }}
-      REMOTE_TARGET: ${{ secrets.DEPLOYMENT_REMOTE_TARGET }}
-
-  Palladio-Addons-MeasurementsUI:
-    needs: [Palladio-Analyzer-SimuLizar, Palladio-Addons-PerOpteryx]
-    if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
-    with:
-      use-display-output: true
-      release-version: '5.2.2'
-      no-caching: true
-      build-repository: PalladioSimulator/Palladio-Addons-MeasurementsUI
-      deploy-updatesite: 'releng/org.palladiosimulator.measurementsui.updatesite/target/repository'
-    secrets:
-      SERVER_SSH_KEY: ${{ secrets.DEPLOYMENT_SERVER_SSH_KEY }}
-      REMOTE_HOST: ${{ secrets.DEPLOYMENT_REMOTE_HOST }}
-      REMOTE_PORT: ${{ secrets.DEPLOYMENT_REMOTE_PORT }}
-      REMOTE_USER: ${{ secrets.DEPLOYMENT_REMOTE_USER }}
-      REMOTE_TARGET: ${{ secrets.DEPLOYMENT_REMOTE_TARGET }}
-
-  Palladio-Addons-PerOpteryx:
-    needs: [Palladio-Analyzer-SimuLizar]
-    if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
-    with:
-      use-display-output: true
-      release-version: '5.2.2'
-      no-caching: true
-      build-repository: PalladioSimulator/Palladio-Addons-PerOpteryx
-      deploy-updatesite: 'releng/org.palladiosimulator.peropteryx.updatesite/target/repository'
-    secrets:
-      SERVER_SSH_KEY: ${{ secrets.DEPLOYMENT_SERVER_SSH_KEY }}
-      REMOTE_HOST: ${{ secrets.DEPLOYMENT_REMOTE_HOST }}
-      REMOTE_PORT: ${{ secrets.DEPLOYMENT_REMOTE_PORT }}
-      REMOTE_USER: ${{ secrets.DEPLOYMENT_REMOTE_USER }}
-      REMOTE_TARGET: ${{ secrets.DEPLOYMENT_REMOTE_TARGET }}
-
-  Palladio-Analyzer-SimuLizar:
-    needs: []
-    if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
-    with:
-      use-display-output: true
-      release-version: '5.2.2'
-      no-caching: true
-      build-repository: PalladioSimulator/Palladio-Analyzer-SimuLizar
-      deploy-updatesite: 'releng/org.palladiosimulator.simulizar.updatesite/target/repository'
     secrets:
       SERVER_SSH_KEY: ${{ secrets.DEPLOYMENT_SERVER_SSH_KEY }}
       REMOTE_HOST: ${{ secrets.DEPLOYMENT_REMOTE_HOST }}
@@ -141,7 +90,7 @@ jobs:
       REMOTE_TARGET: ${{ secrets.DEPLOYMENT_REMOTE_TARGET }}
 
   Palladio-Build-UpdateSite:
-    needs: [Palladio-Analyzer-SimuLizar, Palladio-Addons-PerOpteryx, Palladio-Addons-MeasurementsUI, Palladio-Addons-ExperimentAutomation, Palladio-Addon-ArchitecturalTemplates, Palladio-Addon-ArchitecturalTemplates-LoadBalancing, Palladio-Example-Models-Package, Palladio-Editors-Sirius]
+    needs: [Palladio-Addons-ExperimentAutomation, Palladio-Addon-ArchitecturalTemplates, Palladio-Addon-ArchitecturalTemplates-LoadBalancing, Palladio-Example-Models-Package, Palladio-Editors-Sirius]
     if: success() || failure()
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
     with:
