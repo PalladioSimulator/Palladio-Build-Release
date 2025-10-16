@@ -702,7 +702,7 @@ jobs:
       REMOTE_TARGET: ${{ secrets.DEPLOYMENT_REMOTE_TARGET }}
 
   Palladio-ThirdParty-CloudScaleUsageEvolution:
-    needs: [Palladio-Analyzer-Solver]
+    needs: [Palladio-Analyzer-Solver, Palladio-ThirdParty-LIMBO]
     if: success() || failure()
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
     with:
@@ -763,6 +763,24 @@ jobs:
       runner-label: ubuntu-latest
       build-repository: PalladioSimulator/Palladio-ThirdParty-Library
       deploy-updatesite: 'target/repository'
+    secrets:
+      SERVER_SSH_KEY: ${{ secrets.DEPLOYMENT_SERVER_SSH_KEY }}
+      REMOTE_HOST: ${{ secrets.DEPLOYMENT_REMOTE_HOST }}
+      REMOTE_PORT: ${{ secrets.DEPLOYMENT_REMOTE_PORT }}
+      REMOTE_USER: ${{ secrets.DEPLOYMENT_REMOTE_USER }}
+      REMOTE_TARGET: ${{ secrets.DEPLOYMENT_REMOTE_TARGET }}
+
+  Palladio-ThirdParty-LIMBO:
+    needs: []
+    if: success() || failure()
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
+    with:
+      use-display-output: true
+      release-version: '5.2.2'
+      no-caching: true
+      runner-label: ubuntu-latest
+      build-repository: PalladioSimulator/Palladio-ThirdParty-LIMBO
+      deploy-updatesite: 'releng/tools.descartes.dlim.updatesite/target/repository'
     secrets:
       SERVER_SSH_KEY: ${{ secrets.DEPLOYMENT_SERVER_SSH_KEY }}
       REMOTE_HOST: ${{ secrets.DEPLOYMENT_REMOTE_HOST }}
