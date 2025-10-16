@@ -498,7 +498,7 @@ jobs:
       REMOTE_TARGET: ${{ secrets.DEPLOYMENT_REMOTE_TARGET }}
 
   Palladio-QuAL-MetricSpecification:
-    needs: [Palladio-Core-Commons, Palladio-ThirdParty-EMFProfiles]
+    needs: [Palladio-Core-Commons, Palladio-ThirdParty-EMFProfiles, Palladio-ThirdParty-Wrapper]
     if: success() || failure()
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
     with:
