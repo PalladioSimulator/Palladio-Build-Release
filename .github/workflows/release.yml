@@ -4,41 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:      
-  Palladio-Addon-ArchitecturalTemplates:
-    needs: [Palladio-Addons-CostEfficiency]
-    if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
-    with:
-      use-display-output: true
-      release-version: '5.2.2'
-      no-caching: true
-      build-repository: PalladioSimulator/Palladio-Addon-ArchitecturalTemplates
-      deploy-updatesite: 'releng/org.palladiosimulator.architecturaltemplates.updatesite/target/repository'
-    secrets:
-      SERVER_SSH_KEY: ${{ secrets.DEPLOYMENT_SERVER_SSH_KEY }}
-      REMOTE_HOST: ${{ secrets.DEPLOYMENT_REMOTE_HOST }}
-      REMOTE_PORT: ${{ secrets.DEPLOYMENT_REMOTE_PORT }}
-      REMOTE_USER: ${{ secrets.DEPLOYMENT_REMOTE_USER }}
-      REMOTE_TARGET: ${{ secrets.DEPLOYMENT_REMOTE_TARGET }}
-
-  Palladio-Addon-ArchitecturalTemplates-LoadBalancing:
-    needs: [Palladio-Addon-ArchitecturalTemplates]
-    if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
-    with:
-      use-display-output: true
-      release-version: '5.2.2'
-      no-caching: true
-      build-repository: PalladioSimulator/Palladio-Addon-ArchitecturalTemplates-LoadBalancing
-      deploy-updatesite: 'releng/org.palladiosimulator.loadbalancingaction.updatesite/target/repository'
-    secrets:
-      SERVER_SSH_KEY: ${{ secrets.DEPLOYMENT_SERVER_SSH_KEY }}
-      REMOTE_HOST: ${{ secrets.DEPLOYMENT_REMOTE_HOST }}
-      REMOTE_PORT: ${{ secrets.DEPLOYMENT_REMOTE_PORT }}
-      REMOTE_USER: ${{ secrets.DEPLOYMENT_REMOTE_USER }}
-      REMOTE_TARGET: ${{ secrets.DEPLOYMENT_REMOTE_TARGET }}
-    
-  Palladio-Analyzer-SimuLizar:
+  Palladio-Build-UpdateSite:
     needs: []
     if: success() || failure()
     uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
@@ -46,74 +12,7 @@ jobs:
       use-display-output: true
       release-version: '5.2.2'
       no-caching: true
-      build-repository: PalladioSimulator/Palladio-Analyzer-SimuLizar
-      deploy-updatesite: 'releng/org.palladiosimulator.simulizar.updatesite/target/repository'
-    secrets:
-      SERVER_SSH_KEY: ${{ secrets.DEPLOYMENT_SERVER_SSH_KEY }}
-      REMOTE_HOST: ${{ secrets.DEPLOYMENT_REMOTE_HOST }}
-      REMOTE_PORT: ${{ secrets.DEPLOYMENT_REMOTE_PORT }}
-      REMOTE_USER: ${{ secrets.DEPLOYMENT_REMOTE_USER }}
-      REMOTE_TARGET: ${{ secrets.DEPLOYMENT_REMOTE_TARGET }}
-  
-  Palladio-Addons-CostEfficiency:
-    needs: [Palladio-Analyzer-SimuLizar]
-    if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
-    with:
-      use-display-output: true
-      release-version: '5.2.2'
-      no-caching: true
-      build-repository: PalladioSimulator/Palladio-Addons-CostEfficiency
-      deploy-updatesite: 'releng/org.palladiosimulator.addons.costefficiency.updatesite/target/repository'
-    secrets:
-      SERVER_SSH_KEY: ${{ secrets.DEPLOYMENT_SERVER_SSH_KEY }}
-      REMOTE_HOST: ${{ secrets.DEPLOYMENT_REMOTE_HOST }}
-      REMOTE_PORT: ${{ secrets.DEPLOYMENT_REMOTE_PORT }}
-      REMOTE_USER: ${{ secrets.DEPLOYMENT_REMOTE_USER }}
-      REMOTE_TARGET: ${{ secrets.DEPLOYMENT_REMOTE_TARGET }}
-
-  Palladio-Example-Models-Package:
-    needs: [Palladio-Addon-ArchitecturalTemplates-LoadBalancing]
-    if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
-    with:
-      use-display-output: true
-      release-version: '5.2.2'
-      no-caching: true
-      build-repository: PalladioSimulator/Palladio-Example-Models-Package
-      deploy-updatesite: 'releng/org.palladiosimulator.examples.package.updatesite/target/repository'
-    secrets:
-      SERVER_SSH_KEY: ${{ secrets.DEPLOYMENT_SERVER_SSH_KEY }}
-      REMOTE_HOST: ${{ secrets.DEPLOYMENT_REMOTE_HOST }}
-      REMOTE_PORT: ${{ secrets.DEPLOYMENT_REMOTE_PORT }}
-      REMOTE_USER: ${{ secrets.DEPLOYMENT_REMOTE_USER }}
-      REMOTE_TARGET: ${{ secrets.DEPLOYMENT_REMOTE_TARGET }}
-
-  Palladio-Editors-Sirius:
-    needs: [Palladio-Example-Models-Package]
-    if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
-    with:
-      use-display-output: true
-      release-version: '5.2.2'
-      no-caching: true
-      build-repository: PalladioSimulator/Palladio-Editors-Sirius
-      deploy-updatesite: 'releng/org.palladiosimulator.editors.sirius.updatesite/target/repository'
-    secrets:
-      SERVER_SSH_KEY: ${{ secrets.DEPLOYMENT_SERVER_SSH_KEY }}
-      REMOTE_HOST: ${{ secrets.DEPLOYMENT_REMOTE_HOST }}
-      REMOTE_PORT: ${{ secrets.DEPLOYMENT_REMOTE_PORT }}
-      REMOTE_USER: ${{ secrets.DEPLOYMENT_REMOTE_USER }}
-      REMOTE_TARGET: ${{ secrets.DEPLOYMENT_REMOTE_TARGET }}
-
-  Palladio-Build-UpdateSite:
-    needs: [Palladio-Editors-Sirius]
-    if: success() || failure()
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
-    with:
-      use-display-output: true
-      release-version: '5.2.2'
-      no-caching: true
+      runner-label: ubuntu-latest
       build-repository: PalladioSimulator/Palladio-Build-UpdateSite
       deploy-updatesite: 'target/classes/p2/final'
     secrets:
@@ -131,6 +30,7 @@ jobs:
       use-display-output: true
       release-version: '5.2.2'
       no-caching: true
+      runner-label: ubuntu-latest
       build-repository: PalladioSimulator/Palladio-Bench-Product
       deploy-updatesite: 'products/org.palladiosimulator.product/target/deploy'
     secrets:
